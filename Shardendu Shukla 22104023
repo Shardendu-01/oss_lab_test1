@@ -1,0 +1,39 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+categories = ['Electronics', 'Groceries', 'Clothing', 'Furniture', 'Stationery']
+sales_data = np.array([
+    [120, 500, 230, 75, 45],
+    [130, 520, 210, 80, 40],
+    [125, 530, 220, 70, 50],
+    [140, 540, 200, 90, 60]
+])
+
+def total_units_sold_per_category(sales_data):
+    return np.sum(sales_data, axis=0)
+
+def total_sales_per_week(sales_data):
+    return np.sum(sales_data, axis=1)
+
+def average_sales_per_category(sales_data):
+    return np.mean(sales_data, axis=0)
+
+def plot_sales_trends(sales_data, categories):
+    weeks = ['Week 1', 'Week 2', 'Week 3', 'Week 4']
+    for i, category in enumerate(categories):
+        plt.plot(weeks, sales_data[:, i], label=category)
+    plt.xlabel('Weeks')
+    plt.ylabel('Units Sold')
+    plt.title('Sales Trends for Each Product Category')
+    plt.legend()
+    plt.show()
+
+def best_and_worst_selling_categories(total_units):
+    best_selling = categories[np.argmax(total_units)]
+    worst_selling = categories[np.argmin(total_units)]
+    return best_selling, worst_sel
+
+
+
+
+
